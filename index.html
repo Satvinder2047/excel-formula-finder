@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Formula Finder — search any Excel formula</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grid-backdrop" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="masthead">
+      <span class="masthead-mark">fx</span>
+      <h1>Formula Finder</h1>
+      <p class="masthead-sub">Type a formula name or describe what you're trying to do. Answers are pulled fresh from the web.</p>
+    </header>
+
+    <form id="searchForm" class="formula-bar" autocomplete="off">
+      <span class="formula-bar-ref">A1</span>
+      <span class="formula-bar-divider" aria-hidden="true"></span>
+      <span class="formula-bar-fx" aria-hidden="true">fx</span>
+      <input
+        id="queryInput"
+        type="text"
+        placeholder="=VLOOKUP, or “add up sales if region is West”"
+        aria-label="Search for an Excel formula"
+      />
+      <button type="submit" id="searchBtn">Search</button>
+    </form>
+
+    <section id="status" class="status" hidden></section>
+
+    <section id="result" class="result" hidden>
+      <div class="result-head">
+        <span class="cell-tag">=<span id="resultFormula"></span></span>
+      </div>
+
+      <div class="result-row">
+        <span class="cell-tag cell-tag-muted">Syntax</span>
+        <code id="resultSyntax" class="syntax"></code>
+      </div>
+
+      <div class="result-row">
+        <span class="cell-tag cell-tag-muted">What it does</span>
+        <p id="resultDescription"></p>
+      </div>
+
+      <div class="result-row">
+        <span class="cell-tag cell-tag-muted">Example</span>
+        <p id="resultExample"></p>
+      </div>
+
+      <div class="result-row" id="mistakesRow">
+        <span class="cell-tag cell-tag-warn">Watch out for</span>
+        <ul id="resultMistakes"></ul>
+      </div>
+
+      <div class="result-row" id="relatedRow">
+        <span class="cell-tag cell-tag-muted">Related</span>
+        <div id="resultRelated" class="related-pills"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
