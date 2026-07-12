@@ -1,0 +1,13 @@
+{
+  "name": "excel-formula-finder",
+  "version": "2.0.0",
+  "description": "Search-based Excel formula reference, powered by a built-in formula database. No API key required.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

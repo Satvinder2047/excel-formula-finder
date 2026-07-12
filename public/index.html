@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Formula Finder — search any Excel formula</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grid-backdrop" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="masthead">
+      <span class="masthead-mark">fx</span>
+      <h1>Formula Finder</h1>
+      <p class="masthead-sub">Search by formula name or what you're trying to do — instant, no internet lookup needed.</p>
+    </header>
+
+    <form id="searchForm" class="formula-bar" autocomplete="off">
+      <span class="formula-bar-ref">A1</span>
+      <span class="formula-bar-divider" aria-hidden="true"></span>
+      <span class="formula-bar-fx" aria-hidden="true">fx</span>
+      <input
+        id="queryInput"
+        type="text"
+        placeholder="Try VLOOKUP, SUMIFS, or “add up if”"
+        aria-label="Search for an Excel formula"
+      />
+    </form>
+
+    <section id="status" class="status" hidden></section>
+
+    <section id="resultsList" class="results-list" hidden></section>
+
+    <template id="resultTemplate">
+      <article class="result">
+        <div class="result-head">
+          <span class="cell-tag">=<span class="r-formula"></span></span>
+          <span class="cell-tag cell-tag-muted r-category"></span>
+        </div>
+        <div class="result-row">
+          <span class="cell-tag cell-tag-muted">Syntax</span>
+          <code class="syntax r-syntax"></code>
+        </div>
+        <div class="result-row">
+          <span class="cell-tag cell-tag-muted">What it does</span>
+          <p class="r-description"></p>
+        </div>
+        <div class="result-row">
+          <span class="cell-tag cell-tag-muted">Example</span>
+          <p class="r-example"></p>
+        </div>
+        <div class="result-row r-mistakes-row">
+          <span class="cell-tag cell-tag-warn">Watch out for</span>
+          <ul class="r-mistakes"></ul>
+        </div>
+        <div class="result-row r-related-row">
+          <span class="cell-tag cell-tag-muted">Related</span>
+          <div class="related-pills r-related"></div>
+        </div>
+      </article>
+    </template>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
