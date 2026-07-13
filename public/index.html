@@ -3,66 +3,49 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Formula Finder — search any Excel formula</title>
+<title>Formula Finder — the Excel formula reference</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="grid-backdrop" aria-hidden="true"></div>
 
-  <main class="page">
-    <header class="masthead">
-      <span class="masthead-mark">fx</span>
-      <h1>Formula Finder</h1>
-      <p class="masthead-sub">Search by formula name or what you're trying to do — instant, no internet lookup needed.</p>
-    </header>
-
+  <header class="topbar">
+    <a class="brand" href="#" id="homeLink">
+      <span class="brand-mark">fx</span>
+      <span class="brand-name">Formula Finder</span>
+    </a>
     <form id="searchForm" class="formula-bar" autocomplete="off">
       <span class="formula-bar-ref">A1</span>
-      <span class="formula-bar-divider" aria-hidden="true"></span>
       <span class="formula-bar-fx" aria-hidden="true">fx</span>
       <input
         id="queryInput"
         type="text"
-        placeholder="Try VLOOKUP, SUMIFS, or “add up if”"
+        placeholder="Search a formula — VLOOKUP, IF, “add up if”…"
         aria-label="Search for an Excel formula"
       />
     </form>
+  </header>
 
-    <section id="status" class="status" hidden></section>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <!-- populated by script.js -->
+    </aside>
 
-    <section id="resultsList" class="results-list" hidden></section>
+    <main class="content" id="content">
+      <section class="intro" id="intro">
+        <span class="eyebrow">200+ functions · arguments, examples & HR use cases</span>
+        <h1>Look up any Excel formula, in full.</h1>
+        <p>Search by name or by what you're trying to do. Pick a function from the list, or browse by category on the left.</p>
+        <div class="popular" id="popularList" aria-label="Popular formulas"></div>
+      </section>
 
-    <template id="resultTemplate">
-      <article class="result">
-        <div class="result-head">
-          <span class="cell-tag">=<span class="r-formula"></span></span>
-          <span class="cell-tag cell-tag-muted r-category"></span>
-        </div>
-        <div class="result-row">
-          <span class="cell-tag cell-tag-muted">Syntax</span>
-          <code class="syntax r-syntax"></code>
-        </div>
-        <div class="result-row">
-          <span class="cell-tag cell-tag-muted">What it does</span>
-          <p class="r-description"></p>
-        </div>
-        <div class="result-row">
-          <span class="cell-tag cell-tag-muted">Example</span>
-          <p class="r-example"></p>
-        </div>
-        <div class="result-row r-mistakes-row">
-          <span class="cell-tag cell-tag-warn">Watch out for</span>
-          <ul class="r-mistakes"></ul>
-        </div>
-        <div class="result-row r-related-row">
-          <span class="cell-tag cell-tag-muted">Related</span>
-          <div class="related-pills r-related"></div>
-        </div>
-      </article>
-    </template>
-  </main>
+      <section id="resultsList" class="results-list" hidden></section>
+
+      <article id="detail" class="detail" hidden></article>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
